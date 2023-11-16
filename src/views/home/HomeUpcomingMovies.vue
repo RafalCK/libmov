@@ -4,14 +4,14 @@
 
 <script setup>
 import { ref } from "vue";
-import TmdbAPI from "@/services/TmdbAPI";
+import MovieRepository from "@/repositories/MovieRepository";
 import Carusel from "@/components/carusel/Carusel.vue";
 
 const upcoming = ref(null);
 
 const fetchUpcoming = async () => {
   try {
-    const response = await TmdbAPI.getUpcoming();
+    const response = await MovieRepository.getUpcoming();
     upcoming.value = response.data.results;
   } catch (err) {}
 };

@@ -1,6 +1,6 @@
 import API from "../services/API";
 import env from "../env";
-const resource = "/movie";
+const resource = "/tv";
 
 export default {
   getList(page) {
@@ -9,22 +9,19 @@ export default {
   getPopular() {
     return API().get(`${resource}/popular${env.APIKey}`);
   },
-  getNowPlaying() {
-    return API().get(`${resource}/now_playing${env.APIKey}`);
-  },
   getTopRated() {
     return API().get(`${resource}/top_rated${env.APIKey}`);
   },
-  getUpcoming() {
-    return API().get(`${resource}/upcoming${env.APIKey}`);
+  getOnTheAir() {
+    return API().get(`${resource}/on_the_air${env.APIKey}`);
   },
-  getMovieById(id) {
+  getSerialById(id) {
     return API().get(`${resource}/${id}${env.APIKey}`);
   },
-  getCreditsByMovieId(id) {
+  getCreditsBySerialId(id) {
     return API().get(`${resource}/${id}/credits${env.APIKey}`);
   },
-  getSimilarByMovieId(id) {
+  getSimilarBySerialId(id) {
     return API().get(`${resource}/${id}/similar${env.APIKey}`);
   },
 };

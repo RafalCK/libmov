@@ -10,7 +10,7 @@
 
 <script setup></script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .v-footer {
   flex: unset !important;
 }
