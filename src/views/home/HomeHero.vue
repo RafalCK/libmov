@@ -3,7 +3,6 @@
     <div class="home-hero__gallery">
       <Carousel
         id="gallery"
-        :breakpoints="breakpoints"
         :items-to-show="1"
         :wrap-around="true"
         :autoplay="5000"
