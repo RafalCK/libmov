@@ -1,1 +1,1 @@
-const s="/assets/person_placeholder.8869f4ba.jpg";export{s as _};
+const s="/libmov/assets/person_placeholder.8869f4ba.jpg";export{s as _};
