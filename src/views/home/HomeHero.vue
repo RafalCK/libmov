@@ -7,6 +7,7 @@
         :touch-drag="false"
         :mouse-drag="false"
         :wrap-around="true"
+        :autoplay="5000"
         v-model="currentSlide"
       >
         <Slide v-for="slide in slides" :key="slide">
@@ -90,7 +91,7 @@ const slideTo = (val) => {
 
 <style lang="scss" scoped>
 .home-hero {
-  height: calc(100lvh - #{rem(64)});
+  height: calc(100vh - #{rem(64)});
 
   &__gallery {
     height: 100%;
@@ -211,7 +212,7 @@ const slideTo = (val) => {
 
 @media (max-width: 960px) {
   .home-hero {
-    height: calc(100lvh - #{rem(120)});
+    height: calc(100vh - #{rem(120)});
   }
 }
 </style>
