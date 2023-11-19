@@ -59,6 +59,9 @@ const routes = [
 const router = createRouter({
   history: createWebHistory("/libmov/"),
   routes,
+  scrollBehavior() {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  },
 });
 
 export default router;

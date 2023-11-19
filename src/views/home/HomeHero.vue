@@ -89,7 +89,7 @@ const slideTo = (val) => {
 
 <style lang="scss" scoped>
 .home-hero {
-  height: calc(100svh - #{rem(64)});
+  height: calc(100vh - #{rem(64)});
 
   &__gallery {
     height: 100%;
@@ -210,7 +210,12 @@ const slideTo = (val) => {
 
 @media (max-width: 960px) {
   .home-hero {
-    height: calc(100svh - #{rem(120)});
+    height: calc(100vh - #{rem(120)});
+
+    .carousel__item__info__overview {
+      font-size: rem(13);
+      line-height: 22px;
+    }
   }
 }
 </style>
