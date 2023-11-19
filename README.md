@@ -26,25 +26,37 @@ Project is created with:
 ## Ilustrations
 
 <b>Home</b>
-![home](https://user-images.githubusercontent.com/49562384/229368949-fc82d45f-6de5-4f98-8afd-97301d66fdab.png)
+![home](https://github.com/RafalCK/libmov/assets/49562384/52e60b58-38e4-49b0-a478-3281d1a66b6d)
+
 
 <b>Movies</b>
-![movies](https://user-images.githubusercontent.com/49562384/229369003-dac2ed09-3765-4e3d-93e1-9db0b878744c.png)
+![movies](https://github.com/RafalCK/libmov/assets/49562384/c3a93e35-0701-41e5-aebf-3c972dae64e1)
+
 
 <b>Movie details</b>
-![movie-details](https://user-images.githubusercontent.com/49562384/229369003-dac2ed09-3765-4e3d-93e1-9db0b878744c.png)
+![movie-details](https://github.com/RafalCK/libmov/assets/49562384/1130e362-952b-4713-a0fe-ab56ab27c66a)
+
 
 <b>Series</b>
-![series](https://user-images.githubusercontent.com/49562384/229369042-b85df1fb-9e07-4027-ad9d-831976e6abc1.png)
+![series](https://github.com/RafalCK/libmov/assets/49562384/e332ab4e-2f35-4a10-ac00-75c2d9d63498)
+
 
 <b>Serial details</b>
-![serial-details](https://user-images.githubusercontent.com/49562384/229369174-7cf99ddb-84f7-44c8-be4e-8414c76be76e.png)
+![serial-details](https://github.com/RafalCK/libmov/assets/49562384/d82e0c63-f89b-48ff-a520-ad63be51aa50)
+
 
 <b>Actors</b>
-![actors](https://user-images.githubusercontent.com/49562384/229369213-241a6b4f-2bd7-4157-8273-274d28fbaa1e.png)
+![actors](https://github.com/RafalCK/libmov/assets/49562384/265eca90-cffb-405f-a801-5fd194731e06)
+
 
 <b>Actor details</b>
-![actor-details](https://user-images.githubusercontent.com/49562384/229369213-241a6b4f-2bd7-4157-8273-274d28fbaa1e.png)
+![actor-details](https://github.com/RafalCK/libmov/assets/49562384/95f53e23-0c22-4ff7-bb78-736f5627bbe9)
+
+
+<b>Searcher</b>
+![searcher](https://github.com/RafalCK/libmov/assets/49562384/d4e3a4fe-8b13-4c33-934a-2b5c34bf2ecd)
+
+
 
 ## Setup
 
