@@ -111,17 +111,6 @@ const { goBack } = useNavigation();
       }
     }
   }
-
-  &__content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: rem(40) rem(90);
-    color: $color-white;
-    backdrop-filter: brightness(60%);
-  }
 }
 
 @media (max-width: 620px) {

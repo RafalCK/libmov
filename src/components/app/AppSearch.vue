@@ -3,7 +3,7 @@
     class="search__searcher"
     density="compact"
     variant="solo"
-    label="Search templates"
+    label="Search"
     append-inner-icon="mdi-magnify"
     v-model="search"
     single-line

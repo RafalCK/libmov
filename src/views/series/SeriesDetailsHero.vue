@@ -95,6 +95,7 @@ const circularColor = (count) => {
   }
 
   &__content {
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
@@ -102,7 +103,18 @@ const circularColor = (count) => {
     justify-content: space-between;
     padding: rem(40) rem(90);
     color: $color-white;
-    backdrop-filter: brightness(60%);
+    z-index: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+      z-index: -1;
+    }
 
     &__top {
       display: flex;

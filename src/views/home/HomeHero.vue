@@ -4,8 +4,9 @@
       <Carousel
         id="gallery"
         :items-to-show="1"
+        :touch-drag="false"
+        :mouse-drag="false"
         :wrap-around="true"
-        :autoplay="5000"
         v-model="currentSlide"
       >
         <Slide v-for="slide in slides" :key="slide">
@@ -89,8 +90,7 @@ const slideTo = (val) => {
 
 <style lang="scss" scoped>
 .home-hero {
-  height: 100lvh;
-  margin-top: rem(-64);
+  height: calc(100lvh - #{rem(64)});
 
   &__gallery {
     height: 100%;
@@ -117,6 +117,18 @@ const slideTo = (val) => {
           height: 100%;
           background-size: cover;
           background-position: center center;
+          z-index: -1;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+            z-index: -2;
+          }
 
           &__content {
             width: 100%;
@@ -124,7 +136,6 @@ const slideTo = (val) => {
             display: flex;
             align-items: center;
             color: white;
-            backdrop-filter: brightness(60%);
           }
 
           &__info {
@@ -195,6 +206,12 @@ const slideTo = (val) => {
         }
       }
     }
+  }
+}
+
+@media (max-width: 960px) {
+  .home-hero {
+    height: calc(100lvh - #{rem(120)});
   }
 }
 </style>
