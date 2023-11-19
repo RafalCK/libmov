@@ -3,10 +3,9 @@
     <div class="home-hero__gallery">
       <v-carousel
         v-if="slides"
-        class="carusel"
-        :interval="5000"
         cycle
-        :touchless="true"
+        interval="5000"
+        class="carusel"
         hide-delimiters
         height="100%"
         :show-arrows="false"
@@ -100,12 +99,10 @@ const geners = (item) => {
       }
 
       &__item {
-        position: relative;
         width: 100%;
         height: 100%;
         background-size: cover;
         background-position: center center;
-        z-index: -1;
 
         &::before {
           content: "";
@@ -115,7 +112,7 @@ const geners = (item) => {
           bottom: 0;
           left: 0;
           background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
-          z-index: -2;
+          z-index: 0;
         }
 
         &__content {
@@ -131,6 +128,7 @@ const geners = (item) => {
           flex-direction: column;
           align-items: flex-start;
           margin-left: rem(100);
+          z-index: 1;
           &__name {
             font-size: rem(48);
           }
