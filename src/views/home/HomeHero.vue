@@ -1,14 +1,22 @@
 <template>
   <div class="home-hero">
     <div class="home-hero__gallery">
-      <Carousel
-        id="gallery"
-        :items-to-show="1"
-        v-model="currentSlide"
-        :wrap-around="true"
-        :snap-align="center"
+      <v-carousel
+        v-if="slides"
+        class="carusel"
+        :interval="5000"
+        cycle
+        :touchless="true"
+        hide-delimiters
+        height="100%"
+        :show-arrows="false"
       >
-        <Slide v-for="slide in slides" :key="slide">
+        <v-carousel-item
+          v-for="slide in slides"
+          :draggable="true"
+          :eager="true"
+          :key="slide.id"
+        >
           <div
             class="carousel__item"
             :style="`background-image: url(https://image.tmdb.org/t/p/original/${slide.backdrop_path})`"
@@ -42,8 +50,8 @@
               </div>
             </div>
           </div>
-        </Slide>
-      </Carousel>
+        </v-carousel-item>
+      </v-carousel>
     </div>
   </div>
 </template>
@@ -52,11 +60,6 @@
 import { ref } from "vue";
 import MovieRepository from "@/repositories/MovieRepository";
 import AppGenres from "@/components/app/AppGenres.vue";
-import { Carousel, Slide } from "vue3-carousel";
-import "vue3-carousel/dist/carousel.css";
-
-const carusel = ref(null);
-const currentSlide = ref(0);
 
 const slides = ref(null);
 
@@ -73,18 +76,6 @@ const geners = (item) => {
   const genersArray = item.genre_ids;
   genersArray.forEach((el) => element);
 };
-
-const next = () => {
-  carusel.value.next();
-};
-
-const prev = () => {
-  carusel.value.prev();
-};
-
-const slideTo = (val) => {
-  currentSlide.value = val;
-};
 </script>
 
 <style lang="scss" scoped>
@@ -94,77 +85,74 @@ const slideTo = (val) => {
   &__gallery {
     height: 100%;
 
-    :deep(.carousel) {
-      height: 100%;
+    .carousel {
+      &__viewport {
+        height: 100%;
+      }
 
-      .carousel {
-        &__viewport {
-          height: 100%;
+      &__track {
+        height: 100%;
+        align-items: flex-start;
+      }
+
+      &__slide {
+        height: 100%;
+      }
+
+      &__item {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center center;
+        z-index: -1;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+          z-index: -2;
         }
 
-        &__track {
-          height: 100%;
-          align-items: flex-start;
-        }
-
-        &__slide {
-          height: 100%;
-        }
-
-        &__item {
+        &__content {
           width: 100%;
           height: 100%;
-          background-size: cover;
-          background-position: center center;
-          z-index: -1;
+          display: flex;
+          align-items: center;
+          color: white;
+        }
 
-          &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
-            z-index: -2;
+        &__info {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          margin-left: rem(100);
+          &__name {
+            font-size: rem(48);
           }
-
-          &__content {
-            width: 100%;
-            height: 100%;
+          &__details {
             display: flex;
             align-items: center;
-            color: white;
+            gap: rem(10);
+
+            &__rating {
+              display: block;
+              background: $color-yellow;
+              padding: rem(4) rem(15);
+              color: black;
+              border: 1px solid $color-yellow;
+              border-radius: rem(25);
+            }
           }
 
-          &__info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-left: rem(100);
-            &__name {
-              font-size: rem(48);
-            }
-            &__details {
-              display: flex;
-              align-items: center;
-              gap: rem(10);
-
-              &__rating {
-                display: block;
-                background: $color-yellow;
-                padding: rem(4) rem(15);
-                color: black;
-                border: 1px solid $color-yellow;
-                border-radius: rem(25);
-              }
-            }
-
-            &__overview {
-              margin-top: rem(12);
-              text-align: left;
-              max-width: rem(500);
-            }
+          &__overview {
+            margin-top: rem(12);
+            text-align: left;
+            max-width: rem(500);
           }
         }
       }
@@ -181,25 +169,23 @@ const slideTo = (val) => {
 @media (max-width: 780px) {
   .home-hero {
     &__gallery {
-      :deep(.carousel) {
-        .carousel {
-          &__item {
-            &__content {
-              justify-content: center;
+      .carousel {
+        &__item {
+          &__content {
+            justify-content: center;
+          }
+          &__info {
+            margin-left: 0;
+            padding: 0 rem(20);
+            align-items: center;
+
+            &__name {
+              font-size: rem(26);
             }
-            &__info {
-              margin-left: 0;
-              padding: 0 rem(20);
-              align-items: center;
 
-              &__name {
-                font-size: rem(26);
-              }
-
-              &__details {
-                justify-content: center;
-                flex-wrap: wrap;
-              }
+            &__details {
+              justify-content: center;
+              flex-wrap: wrap;
             }
           }
         }
