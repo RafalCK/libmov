@@ -4,11 +4,9 @@
       <Carousel
         id="gallery"
         :items-to-show="1"
-        :touch-drag="false"
-        :mouse-drag="false"
-        :wrap-around="true"
-        :autoplay="5000"
         v-model="currentSlide"
+        :wrap-around="true"
+        :snap-align="center"
       >
         <Slide v-for="slide in slides" :key="slide">
           <div
@@ -91,7 +89,7 @@ const slideTo = (val) => {
 
 <style lang="scss" scoped>
 .home-hero {
-  height: calc(100vh - #{rem(64)});
+  height: calc(100svh - #{rem(64)});
 
   &__gallery {
     height: 100%;
@@ -212,7 +210,7 @@ const slideTo = (val) => {
 
 @media (max-width: 960px) {
   .home-hero {
-    height: calc(100vh - #{rem(120)});
+    height: calc(100svh - #{rem(120)});
   }
 }
 </style>
